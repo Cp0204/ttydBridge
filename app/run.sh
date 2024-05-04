@@ -15,7 +15,7 @@ ttyd_options+=(-p "$port")
 
 # 允许客户端写入TTY
 allow_write=${ALLOW_WRITE:-"true"}
-if [[ "$allow_write" == "true" ]]; then
+if [[ "$allow_write" != "false" ]]; then
     ttyd_options+=("-W")
 fi
 
