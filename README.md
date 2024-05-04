@@ -37,16 +37,16 @@ docker run -d \
 
 ## 环境变量
 
-| 变量名                        | 默认值  | 描述                                       |
-| ----------------------------- | ------- | ------------------------------------------ |
-| `EXEC_DIR`                    | `/opt`  | 运行目录，必须配合卷映射三处一致，不懂勿改 |
-| `START_COMMAND`               | `login` | ttyd初始运行命令                           |
-| `PORT`                        | `2222`  | 网页端口                                   |
-| `ALLOW_WRITE`                 | `true`  | 允许写入                                   |
-| `USERNAME` `PASSWORD`         |         | HTTP基础验证凭据，同时设置时生效           |
-| `ENABLE_SSL`                  | `false` | 启用 SSL                                   |
-| `SSL_CERT` `SSL_KEY` `SSL_CA` |         | 证书路径，当 ENABLE_SSL=true 时生效        |
-| `ENABLE_IPV6`                 | `false` | 启用 IPv6 支持                             |
+| 变量名                          | 默认值  | 描述                                               |
+| ------------------------------- | ------- | -------------------------------------------------- |
+| `EXEC_DIR`                      | `/opt`  | 运行目录，必须配合卷映射三处一致，不懂勿改         |
+| `START_COMMAND`                 | `login` | ttyd 初始命令，`login`使用系统鉴权，`bash`直接进入 |
+| `PORT`                          | `2222`  | 网页端口                                           |
+| `ALLOW_WRITE`                   | `true`  | 允许写入                                           |
+| `HTTP_USERNAME` `HTTP_PASSWORD` |         | HTTP基础验证凭据，同时设置时生效                   |
+| `ENABLE_SSL`                    | `false` | 启用 SSL                                           |
+| `SSL_CERT` `SSL_KEY` `SSL_CA`   |         | 证书路径，当 ENABLE_SSL=true 时生效                |
+| `ENABLE_IPV6`                   | `false` | 启用 IPv6 支持                                     |
 
 ## 赞助
 

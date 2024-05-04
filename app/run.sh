@@ -20,10 +20,10 @@ if [[ "$allow_write" == "true" ]]; then
 fi
 
 # 基本身份验证的凭据
-username="${USERNAME}"
-password="${PASSWORD}"
-if [[ -n "$username" && -n "$password" ]]; then
-    ttyd_options+=(-c "$username:$password")
+http_username="${HTTP_USERNAME}"
+http_password="${HTTP_PASSWORD}"
+if [[ -n "$http_username" && -n "$http_password" ]]; then
+    ttyd_options+=(-c "$http_username:$http_password")
 fi
 
 # 启用SSL
