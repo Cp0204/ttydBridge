@@ -1,0 +1,19 @@
+version: "3.8"
+name: ttydbridge
+services:
+  ttydbridge:
+    # build: .
+    # image: ttdybridge
+    image: cp0204/ttdybridge:latest
+    container_name: ttdybridge
+    environment:
+      EXEC_DIR: "/opt"
+      START_COMMAND: "login"
+      PORT: "2222"
+      ALLOW_WRITE: "true"
+    volumes:
+      - /opt:/opt
+    network_mode: bridge
+    pid: host
+    privileged: true
+    restart: unless-stopped
