@@ -1,18 +1,16 @@
 <div align="center">
 
-![logo](https://cdn.jsdelivr.net/gh/Cp0204/CasaOS-AppStore-Play@main/Apps/ttydbridge/icon.png)
+![logo](img/icon.png)
 
 # ttydBridge
 
-基于 ttyd 绕过了隔离机制的 Docker 容器
-
-如一座“桥”，连通了宿主机环境，让你在浏览器中轻松使用宿主机终端
+English | [简体中文](/README_CN.md)
 
 Docker containers based on ttyd bypass the isolation mechanism.
 
 A "bridge" to the host environment, allowing you to easily use the host terminal in your browser.
 
-[![docker tag][docker-tag-image]][docker-url] [![docker pulls][docker-pulls-image]][docker-url] [![docker image size][docker-image-size-image]][docker-url]
+[![docker tag][docker-tag-image]][github-url] [![docker pulls][docker-pulls-image]][docker-url] [![docker image size][docker-image-size-image]][docker-url]
 
 [docker-tag-image]: https://img.shields.io/docker/v/cp0204/ttydbridge
 [docker-pulls-image]: https://img.shields.io/docker/pulls/cp0204/ttydbridge
@@ -22,9 +20,9 @@ A "bridge" to the host environment, allowing you to easily use the host terminal
 
 </div>
 
-## 使用
+## Usage
 
-运行容器：
+Run the container:
 
 ```shell
 docker run -d \
@@ -37,27 +35,27 @@ docker run -d \
   cp0204/ttdybridge:latest
 ```
 
-通过 `http://yourhost:2222` 访问网页终端，使用系统用户登录。
+Access the web terminal via `http://yourhost:2222` and login with your system user.
 
-## 环境变量
+## Environment
 
-| 变量名                          | 默认值  | 描述                                               |
-| ------------------------------- | ------- | -------------------------------------------------- |
-| `EXEC_DIR`                      | `/opt`  | 程序运行目录，必须配合卷映射三处一致，不懂勿改     |
-| `START_COMMAND`                 | `login` | ttyd 初始命令，`login`使用系统鉴权，`bash`直接进入 |
-| `PORT`                          | `2222`  | 网页端口                                           |
-| `ALLOW_WRITE`                   | `true`  | 允许终端输入                                       |
-| `HTTP_USERNAME` `HTTP_PASSWORD` |         | HTTP基础验证凭据，同时设置时生效                   |
-| `ENABLE_SSL`                    | `false` | 启用 SSL （https）                                 |
-| `SSL_CERT` `SSL_KEY` `SSL_CA`   |         | 主机证书路径，当 ENABLE_SSL=true 时生效            |
-| `ENABLE_IPV6`                   | `false` | 启用 IPv6 支持                                     |
+| Name                            | Default | Description                                                                                               |
+| ------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| `EXEC_DIR`                      | `/opt`  | Program execution dir, must be consistent with volume mappings, **DO NOT MODIFY if you don't understand** |
+| `START_COMMAND`                 | `login` | ttyd initial command, `login` uses system authentication, `bash` enters directly                          |
+| `PORT`                          | `2222`  | Web port                                                                                                  |
+| `ALLOW_WRITE`                   | `true`  | Allow terminal input                                                                                      |
+| `HTTP_USERNAME` `HTTP_PASSWORD` |         | HTTP basic authentication, effective when set at the same time                                            |
+| `ENABLE_SSL`                    | `false` | Enable SSL (https)                                                                                        |
+| `SSL_CERT` `SSL_KEY` `SSL_CA`   |         | Host certificate paths, effective when ENABLE_SSL=true                                                    |
+| `ENABLE_IPV6`                   | `false` | Enable IPv6 support                                                                                       |
 
-## 赞助
+## Sponsor
 
-如果你觉得这个项目对你有帮助，可以给我一点点支持，非常感谢～
+If you find this project helpful, you can give me a little support, thank you very much~
 
-![WeChatPay](https://cdn.jsdelivr.net/gh/Cp0204/CasaMOD@main/img/wechat_pay_qrcode.png)
+![WeChatPay](img/wechat_pay_qrcode.png)
 
-## 感谢
+## Thank
 
 - [ttyd](https://github.com/tsl0922/ttyd) : Share your terminal over the web
