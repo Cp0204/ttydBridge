@@ -49,6 +49,7 @@ docker run -d \
 | `ENABLE_SSL`                    | `false` | 启用 SSL （https）                                 |
 | `SSL_CERT` `SSL_KEY` `SSL_CA`   |         | 主机证书路径，当 ENABLE_SSL=true 时生效            |
 | `ENABLE_IPV6`                   | `false` | 启用 IPv6 支持                                     |
+| `AUTO_ALLOW_PORT`               | `false` | 自动放行网页端口                                   |
 
 ## 赞助
 
