@@ -69,20 +69,20 @@ start() {
 
     distro=$(host_exec "grep '^PRETTY_NAME' /etc/os-release | awk -F '=' '{print \$2}' | tr -d '\"'")
     arch=$(host_exec "uname -m")
-    echo "HostOS: ${distro} ${arch}"
+    echo "HostOS: $distro $arch"
 
     # Creating directory
     if [[ ! -d "$exec_dir" ]]; then
-        echo "Creating directory ${exec_dir}"
+        echo "ExecDir: $exec_dir does not exist, creating"
         mkdir -p "$exec_dir"
     fi
     # Create executable
     if [[ ! -f "$exec_path" ]]; then
+        echo "ttyd: Copy to $exec_path"
         cp /usr/bin/ttyd $exec_path
-        echo "Copy ttyd to $exec_path"
     else
+        echo "ttyd: Host already exist $exec_path"
         host_exists_ttyd=1
-        echo "Host already exists $exec_path"
     fi
     chmod +x $exec_path
 
@@ -93,17 +93,17 @@ start() {
             echo $?
         )
         if [[ "$port_check_error" -eq 0 ]]; then
-            echo "Iptables rule $port exist."
+            echo "AutoAllowPort: Iptables rule $port exist"
             host_exists_iptables_rule=1
         else
-            echo "Iptables rule $port does not exist, auto allow."
+            echo "AutoAllowPort: Iptables rule $port does not exist, auto allowing"
             host_exec "iptables -I INPUT -p tcp --dport $port -j ACCEPT"
         fi
     fi
 
     # exec
     exec_command="$exec_path ${ttyd_options[*]} $start_command"
-    echo "ttyd startup options: $exec_command"
+    echo "ttyd startup command: $exec_command"
     host_exec "$exec_command" &
 
     echo "Keep Running..."
@@ -115,13 +115,16 @@ start() {
 stop() {
     echo "Stopping..."
     if [[ -f "$exec_path" && $host_exists_ttyd -eq 0 ]]; then
+        echo "ttyd: Cleanup $exec_path"
         rm "$exec_path"
-        echo "Cleanup $exec_path"
+
     fi
     if [[ "$auto_allow_port" != "false" && $host_exists_iptables_rule -eq 0 ]]; then
+        echo "AutoAllowPort: Delete iptables rule $port"
         host_exec "iptables -D INPUT -p tcp --dport $port -j ACCEPT"
-        echo "Delete iptables rule $port."
     fi
+    echo "Goodbye"
+    echo ""
     exit 0
 }
 
