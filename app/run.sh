@@ -59,6 +59,10 @@ fi
 start() {
     echo "Starting..."
 
+    distro=$(grep '^PRETTY_NAME' /etc/os-release | awk -F '=' '{print $2}' | tr -d '"')
+    arch=$(uname -m)
+    echo "OS: ${distro} ${arch}"
+
     if [[ ! -d "$exec_dir" ]]; then
         echo "Creating directory ${exec_dir}"
         mkdir -p "$exec_dir"
