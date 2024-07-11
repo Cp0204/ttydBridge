@@ -51,11 +51,13 @@ Access the web terminal via `http://yourhost:2222` and login with your system us
 | `ENABLE_IPV6`                   | `false` | Enable IPv6 support                                                                                       |
 | `AUTO_ALLOW_PORT`               | `false` | Automatically allow web ports                                                                             |
 
-## Sponsor
+## Donate
 
-If you find this project helpful, you can give me a little support, thank you very much~
+Enjoyed the project? Consider buying me a coffee - it helps me keep going!
 
-![WeChatPay](img/wechat_pay_qrcode.png)
+<a href="https://buymeacoffee.com/cp0204"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" target="_blank"/></a>
+
+![WeChatPay](https://cdn.jsdelivr.net/gh/Cp0204/Cp0204@main/img/wechat_pay_qrcode.png)
 
 ## Thank
 
