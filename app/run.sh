@@ -67,6 +67,19 @@ host_exec() {
 start() {
     echo "Starting..."
 
+    if [[ "$start_command" == "login" ]]; then
+        # Check if root password is set
+        echo "Checking root password status..."
+        root_password_status=$(host_exec "passwd -S root 2>/dev/null | awk '{print \$2}'")
+        if [[ "$root_password_status" == "NP" || -z "$root_password_status" ]]; then
+            echo "Error: Root password is not set."
+            echo "Please use 'passwd root' command to set a password first."
+            echo "Goodbye"
+            echo ""
+            exit 1
+        fi
+    fi
+
     distro=$(host_exec "grep '^PRETTY_NAME' /etc/os-release | awk -F '=' '{print \$2}' | tr -d '\"'")
     arch=$(host_exec "uname -m")
     echo "HostOS: $distro $arch"
